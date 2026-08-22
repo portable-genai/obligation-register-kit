@@ -1,0 +1,76 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "obligation-register-kit"
+version = "0.0.1"
+description = "The shared obligation-register kernel for GRC systems: an atomic, owned, citation-bearing obligation model; a typed, reviewed obligation->policy->control->evidence mapping graph; versioned, effective-dated register snapshots; deadline arithmetic; and a pure coverage/gap engine (coverage bands, orphan controls, stale edges) computed from accepted, non-stale edges only. Pure standard library, no clock and no I/O, so consequential math is deterministic and replayable and a consuming service inherits zero runtime dependencies."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Ashish Awasthi" }]
+keywords = [
+  "grc", "compliance", "obligations", "obligation-register", "controls",
+  "control-mapping", "coverage", "gap-analysis", "regulatory", "governance",
+  "hexagonal", "ports-and-adapters", "deterministic",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Office/Business :: Financial",
+  "Typing :: Typed",
+]
+
+# ZERO runtime dependencies: the kernel is pure standard library (dataclasses, enum,
+# hashlib, json, datetime as a VALUE type only). A consumer inherits no transitive runtime
+# deps and the kernel installs and runs on an air-gapped host.
+dependencies = []
+
+[project.optional-dependencies]
+# The test/lint toolchain. Ruff is pinned EXACTLY (matching the catalog fleet) so
+# ``ruff format --check`` never drifts across machines. ``agent-eval-kit`` is a TEST-ONLY
+# dependency: the not-falsely-green falsification proof over the coverage cases imports
+# ``agent_eval_kit.assert_each_can_go_red``. It is pinned to a released tag rather than a
+# branch, and the lockfiles record the commit that tag resolves to. The offline gate installs
+# it from the local sibling checkout instead of GitHub; see AGENTS.md.
+dev = [
+  "ruff==0.15.18",
+  "mypy>=1.10",
+  "pytest>=8.2",
+  "agent-eval-kit @ git+https://github.com/portable-genai/agent-eval-kit@v0.0.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/portable-genai/obligation-register-kit"
+Source = "https://github.com/portable-genai/obligation-register-kit"
+Issues = "https://github.com/portable-genai/obligation-register-kit/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/obligation_register"]
+
+# The dev extra pins the test-only agent-eval-kit by git tag (a direct reference), so the
+# clean-clone networked path ``pip install -e ".[dev]"`` resolves it. Hatchling requires
+# this opt-in to allow a direct URL reference in metadata.
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.ruff]
+line-length = 100
+src = ["src", "tests"]
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
