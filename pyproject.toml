@@ -38,7 +38,7 @@ dependencies = []
 # branch, and the lockfiles record the commit that tag resolves to. The offline gate installs
 # it from the local sibling checkout instead of GitHub; see AGENTS.md.
 dev = [
-  "ruff==0.15.18",
+  "ruff==0.16.3",
   "mypy>=1.10",
   "pytest>=8.2",
   "agent-eval-kit @ git+https://github.com/portable-genai/agent-eval-kit@v0.0.1",
