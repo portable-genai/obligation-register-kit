@@ -10,9 +10,8 @@ here. Read it first. This file carries only what is specific to this one.
 `obligation-register-kit` is the shared **obligation-register kernel** for the catalog's GRC
 systems, packaged once: an atomic, owned, citation-bearing obligation model; a typed, reviewed
 obligation to policy to control to evidence mapping graph; versioned, effective-dated register
-snapshots; deadline arithmetic; and a pure coverage/gap engine. It is born in Rgc7
-(`obligations-control-mapping`, the system of record) and pinned by tag from Rgc12
-(`contract-obligation-extraction`), which applies the same engine to a contractual corpus.
+snapshots; deadline arithmetic; and a pure coverage/gap engine. It is born in `obligations-control-mapping`
+(`obligations-control-mapping`, the system of record) and pinned by tag from `contract-obligation-extraction`, which applies the same engine to a contractual corpus.
 
 ## Commands
 

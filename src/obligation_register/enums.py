@@ -1,10 +1,10 @@
 """The closed vocabularies of the obligation register (pure stdlib).
 
-Every enum here is a ``StrEnum`` so a value serialises to a stable string and a
-persisted register survives a round trip without a translation table. The kernel is
-shared by the regulatory system of record (Rgc7) and the contractual extractor (Rgc12),
-so these vocabularies are the shared contract: adding a member is a schema change and
-carries a ``SCHEMA_VERSION`` bump in :mod:`obligation_register.schema`.
+Every enum here is a ``StrEnum`` so a value serialises to a stable string and a persisted register
+survives a round trip without a translation table. The kernel is shared by the regulatory system of
+record (obligations-control-mapping) and the contractual extractor (contract-obligation-extraction),
+so these vocabularies are the shared contract: adding a member is a schema change and carries a
+``SCHEMA_VERSION`` bump in :mod:`obligation_register.schema`.
 """
 
 from __future__ import annotations
