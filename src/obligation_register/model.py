@@ -1,10 +1,10 @@
 """The value objects of the register: refs, nodes, obligations, deadlines, edges.
 
-All frozen, all slotted, all pure stdlib. These are the shared types Rgc7 (regulatory)
-and Rgc12 (contractual) both speak: an obligation decomposed from a source, the policy /
-control / evidence nodes it maps to, the typed edges that connect them, and the deadline
-an obligation may carry. Consequential structure lives here; consequential DECISIONS live
-in :mod:`obligation_register.coverage`.
+All frozen, all slotted, all pure stdlib. These are the shared types obligations-control-mapping
+(regulatory) and contract-obligation-extraction (contractual) both speak: an obligation decomposed
+from a source, the policy / control / evidence nodes it maps to, the typed edges that connect them,
+and the deadline an obligation may carry. Consequential structure lives here; consequential
+DECISIONS live in :mod:`obligation_register.coverage`.
 """
 
 from __future__ import annotations

@@ -1,9 +1,9 @@
 """obligation-register-kit: the shared obligation-register kernel for GRC systems.
 
-One versioned source of truth for the obligation to policy to control to evidence graph
-that the regulatory system of record (Rgc7) and the contractual obligation extractor
-(Rgc12) both build on. Everything here is pure standard library: no clock, no I/O, no
-framework, no cloud SDK, so it installs and runs on an air-gapped host and a consuming
+One versioned source of truth for the obligation to policy to control to evidence graph that the
+regulatory system of record (obligations-control-mapping) and the contractual obligation extractor
+(contract-obligation-extraction) both build on. Everything here is pure standard library: no clock,
+no I/O, no framework, no cloud SDK, so it installs and runs on an air-gapped host and a consuming
 service inherits zero transitive runtime dependencies.
 
 The kernel in one paragraph: an :class:`Obligation` is an atomic, owned statement

@@ -4,7 +4,7 @@ The shared **obligation-register kernel** for the catalog's governance, risk and
 systems. It is the engine that decomposes a source into atomic, owned obligations, maps each
 across a typed obligation to policy to control to evidence graph, versions the register over
 time, and computes coverage and gaps deterministically. It is born in the obligations system
-of record (Rgc7) and pinned by tag from the contractual obligation extractor (Rgc12), so both
+of record (`obligations-control-mapping`) and pinned by tag from the contractual obligation extractor (`contract-obligation-extraction`), so both
 systems reason over one register model rather than two that drift.
 
 The kernel is **pure standard library**: no clock, no I/O, no framework, no cloud SDK. Every

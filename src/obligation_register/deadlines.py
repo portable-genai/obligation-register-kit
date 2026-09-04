@@ -1,10 +1,10 @@
 """Deadline arithmetic for the register (pure stdlib, no clock).
 
-An obligation may carry a :class:`~obligation_register.model.Deadline`. Whether it is
-overdue or approaching is never read from a system clock here: every question takes an
-explicit ``as_of`` date, so a status is a pure function of the deadline and the reference
-date and replays identically. Rgc12 layers renewal windows and notice periods on top of
-these primitives; the kernel owns the primitives so both systems share one calendar.
+An obligation may carry a :class:`~obligation_register.model.Deadline`. Whether it is overdue or
+approaching is never read from a system clock here: every question takes an explicit ``as_of`` date,
+so a status is a pure function of the deadline and the reference date and replays identically.
+contract-obligation-extraction layers renewal windows and notice periods on top of these primitives;
+the kernel owns the primitives so both systems share one calendar.
 """
 
 from __future__ import annotations
